@@ -23,8 +23,7 @@ class BoggleSolver
   def search(word)
     @current_tile = word.letters.last
     matches = ScrabbleDictionaryReader.search(word.print_word)
-    if matches.empty?
-    else
+    unless matches.empty?
       if matches.include?(word.print_word)
         puts "*   Found word! (#{word.print_word})"
         @found_words << word.print_word
