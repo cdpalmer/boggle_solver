@@ -11,5 +11,6 @@ puts; puts;
 eng.start_search
 
 puts; puts;
-puts " This is our working board: "
-Board.pretty_board;
+puts " These are all found words: "
+pp eng.found_words
+puts

@@ -5,6 +5,14 @@ class Word
     @letters = []
   end
 
+  def has_letter?(letter)
+    # This should be more legible
+    !@letters.select do |l|
+      (l.x == letter.x &&
+       l.y == letter.y)
+    end.empty?
+  end
+
   def push(tile)
     if @letters.empty?
       @letters << tile
