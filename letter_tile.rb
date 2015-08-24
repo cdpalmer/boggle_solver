@@ -1,7 +1,7 @@
 class LetterTile
   # T/F flags if tile has been searched
   attr_accessor :n, :ne, :e, :se, :s, :sw, :w, :nw
-  attr_accessor :x, :y, :value, :next_letter, :previous_letter
+  attr_accessor :x, :y, :value
 
   def initialize(x,y)
     @x = x

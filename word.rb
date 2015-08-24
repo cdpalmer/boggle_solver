@@ -17,8 +17,6 @@ class Word
     if @letters.empty?
       @letters << tile
     else
-      # @letters.last.next_letter = tile
-      # tile.previous_letter = @letters.last
       @letters << tile
     end
   end
@@ -28,7 +26,6 @@ class Word
       nil
     else
       @letters.pop
-      # @letters.last.next_letter = nil
     end
   end
 

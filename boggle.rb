@@ -30,7 +30,9 @@ class BoggleSolver
         @found_words << word.print_word
       end
 
+      # NOTE!!
       # This should be meta-programmed
+      #   I know this isn't the cleanest
       if @current_tile.north_tile && @current_tile.n.nil?
         @current_tile.n = true
         unless word.has_letter?(@current_tile.north_tile)
