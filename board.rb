@@ -12,11 +12,11 @@ class Board
       # %w(x x x c o)
     # ]
     [
-      %w(x x y x x),
-      %w(x d x x x),
-      %w(x o c x x),
-      %w(x x x x x),
-      %w(x x x x x)
+      %w(n n y n s),
+      %w(m d q x s),
+      %w(n o c x s),
+      %w(x p r x s),
+      %w(0 1 2 3 s)
     ]
   end
 
