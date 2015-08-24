@@ -6,8 +6,9 @@ class ScrabbleDictionaryReader
 
   def self.search(arg)
     # return fuzzy search array of words
-    # arg = 'an'
-    %w( an band sand can land )
+
+    # This is the list of words in demo board + two more
+    library_response = %w( bag gab bare are a rag cody cod doc two more )
   end
 end
 
