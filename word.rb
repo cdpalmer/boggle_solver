@@ -15,7 +15,13 @@ class Word
     end
   end
 
-  def pop(tile)
+  def pop
+    if @letters.empty?
+      nil
+    else
+      @letters.pop
+      @letters.last.next_letter = nil
+    end
   end
 
   def count
