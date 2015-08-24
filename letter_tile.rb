@@ -7,53 +7,69 @@ class LetterTile
     @x = x
     @y = y
     @value = Board.values[x][y]
+
+    if x == 0
+      @nw = @w = @sw = true
+    end
+
+    if y == 0
+      @nw = @n = @ne = true
+    end
+
+    if x == Board.height - 1
+      @ne = @e = @se = true
+    end
+
+    if y == Board.height - 1
+      @se = @s = @sw = true
+    end
   end
 
   def north_tile
     return nil if y == 0
-    @n = true
-    Tile.new(x,y-1)
+    LetterTile.new(x,y-1)
   end
 
   def south_tile
     return nil if y == Board.height - 1
-    @s = true
-    Tile.new(x,y+1)
+    LetterTile.new(x,y+1)
   end
 
   def east_tile
     return nil if x == Board.height - 1
-    @e = true
-    Tile.new(x+1,y)
+    LetterTile.new(x+1,y)
   end
 
   def west_tile
     return nil if x == 0
-    @w = true
-    Tile.new(x-1,y)
+    LetterTile.new(x-1,y)
   end
 
   def southeast_tile
     return nil if (x == Board.height - 1) || (y == Board.height - 1)
-    @se = true
-    Tile.new(x+1,y+1)
+    LetterTile.new(x+1,y+1)
   end
 
   def northeast_tile
     return nil if (x == Board.height - 1) || (y == 0)
-    @ne = true
-    Tile.new(x+1,y-1)
+    LetterTile.new(x+1,y-1)
   end
 
   def southwest_tile
     return nil if (x == 0) || (y == Board.height - 1)
-    @sw = true
-    Tile.new(x-1,y+1)
+    LetterTile.new(x-1,y+1)
   end
 
   def northwest_tile
     return nil if (x == 0) || (y == 0)
-    @nw = true
-    Tile.new(x-1,y-1)
+    LetterTile.new(x-1,y-1)
+  end
+
+  def dead_node?
+    @n && @ne && @e && @se && @s && @sw && @w && @nw
+  end
+
+  def root_node?
+    @previous_letter == nil
   end
 end

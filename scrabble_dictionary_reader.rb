@@ -8,7 +8,8 @@ class ScrabbleDictionaryReader
     # return fuzzy search array of words
 
     # This is the list of words in demo board + two more
-    library_response = %w( bag gab bare are a rag cody cod doc two more )
+    # library_response = %w( bag gab bare are a rag cody cod doc two more grab )
+    library_response = %w( cody )
     library_response.select { |word| word.include?(arg) }
   end
 end

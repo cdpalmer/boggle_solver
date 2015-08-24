@@ -11,3 +11,5 @@ puts; puts;
 eng.start_search
 
 puts; puts;
+puts " This is our working board: "
+Board.pretty_board;

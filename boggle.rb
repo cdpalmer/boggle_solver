@@ -22,16 +22,74 @@ class BoggleSolver
   end
 
   def search(word)
+    @current_tile = word.letters.last
     matches = ScrabbleDictionaryReader.search(word.print_word)
-    unless matches.empty?
+    if matches.empty?
+      puts "  - Done searching at (#{@current_tile.x},#{@current_tile.y})"
+      puts ''
+    else
       if matches.include?(word.print_word)
-        puts "  Found word! (#{word.print_word})"
+        puts "*   Found word! (#{word.print_word})"
         @found_words << word.print_word
       end
-    end
-  end
 
-  def root_node?(tile)
-    tile.previous_letter == nil
+      # This should be meta-programmed
+      if @current_tile.north_tile && @current_tile.n.nil?
+        @current_tile.n = true
+        word.push(@current_tile.north_tile)
+        puts "    Starting search with #{word.print_word.upcase}"
+        search(word)
+        word.pop
+      end
+      if @current_tile.northeast_tile && @current_tile.ne.nil?
+        @current_tile.ne = true
+        word.push(@current_tile.northeast_tile)
+        puts "    Starting search with #{word.print_word.upcase}"
+        search(word)
+        word.pop
+      end
+      if @current_tile.east_tile && @current_tile.e.nil?
+        @current_tile.e = true
+        word.push(@current_tile.east_tile)
+        puts "    Starting search with #{word.print_word.upcase}"
+        search(word)
+        word.pop
+      end
+      if @current_tile.southeast_tile && @current_tile.se.nil?
+        @current_tile.se = true
+        word.push(@current_tile.southeast_tile)
+        puts "    Starting search with #{word.print_word.upcase}"
+        search(word)
+        word.pop
+      end
+      if @current_tile.south_tile && @current_tile.s.nil?
+        @current_tile.s = true
+        word.push(@current_tile.south_tile)
+        puts "    Starting search with #{word.print_word.upcase}"
+        search(word)
+        word.pop
+      end
+      if @current_tile.southwest_tile && @current_tile.sw.nil?
+        @current_tile.sw = true
+        word.push(@current_tile.southwest_tile)
+        puts "    Starting search with #{word.print_word.upcase}"
+        search(word)
+        word.pop
+      end
+      if @current_tile.west_tile && @current_tile.w.nil?
+        @current_tile.w = true
+        word.push(@current_tile.west_tile)
+        puts "    Starting search with #{word.print_word.upcase}"
+        search(word)
+        word.pop
+      end
+      if @current_tile.northwest_tile && @current_tile.nw.nil?
+        @current_tile.nw = true
+        word.push(@current_tile.northwest_tile)
+        puts "    Starting search with #{word.print_word.upcase}"
+        search(word)
+        word.pop
+      end
+    end
   end
 end
