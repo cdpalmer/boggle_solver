@@ -4,7 +4,7 @@ class LetterTile
   def initialize(x, y)
     @x = x
     @y = y
-    @value = Board.values[x,y]
+    @value = Board.values[x][y]
   end
 
   def north_tile
