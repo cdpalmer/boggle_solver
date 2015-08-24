@@ -53,5 +53,7 @@ class LetterTile
 
   def northwest_tile
     return nil if (x == 0) || (y == 0)
+    @nw = true
+    Tile.new(x-1,y-1)
   end
 end
