@@ -12,4 +12,11 @@ class Board
       %w(x x x c o)
     ]
   end
+
+  def self.pretty_board
+    self.values.each do |row|
+      out = row.join(" ").upcase
+      puts "    #{out}"
+    end
+  end
 end
