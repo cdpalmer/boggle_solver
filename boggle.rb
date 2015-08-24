@@ -13,7 +13,8 @@ class BoggleSolver
     Board.values.each_with_index do |row, y|
       row.each_with_index do |letter, x|
         @current_tile = LetterTile.new(x,y)
-        @current_word = Word.new.push(@current_tile)
+        @current_word = Word.new
+        @current_word.push(@current_tile)
         puts "  Searching at tile #{@current_tile.value.upcase} at (#{x},#{y})"
         search(@current_word)
       end
@@ -21,11 +22,11 @@ class BoggleSolver
   end
 
   def search(word)
-    matches = ScrabbleDictionaryReader.search(word.print)
+    matches = ScrabbleDictionaryReader.search(word.print_word)
     unless matches.empty?
-      if matches.include?(word.print)
-        puts "  Found word! (#{word.print})"
-        @found_words << word.print
+      if matches.include?(word.print_word)
+        puts "  Found word! (#{word.print_word})"
+        @found_words << word.print_word
       end
     end
   end

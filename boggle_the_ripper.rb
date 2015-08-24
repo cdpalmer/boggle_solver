@@ -10,6 +10,4 @@ Board.pretty_board;
 puts; puts;
 eng.start_search
 
-
-
-puts; puts; puts;
+puts; puts;
