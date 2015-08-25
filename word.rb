@@ -6,11 +6,7 @@ class Word
   end
 
   def has_letter?(letter)
-    # This should be more legible
-    !@letters.select do |l|
-      (l.x == letter.x &&
-       l.y == letter.y)
-    end.empty?
+    !@letters.select { |l| (l.x == letter.x && l.y == letter.y) }.empty?
   end
 
   def push(tile)
