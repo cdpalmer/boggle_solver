@@ -8,7 +8,9 @@ class ScrabbleDictionaryReader
     # return fuzzy search array of words
 
     # This is the list of words in demo board + two more
-    library_response = %w( bag gab bare are a rag cody cod doc two more grab )
+    # 'bara' is a test word to verify that the algorithm doesn't go back on
+    #   already explored letters
+    library_response = %w( bara bag gab bare are a rag cody cod doc two more grab )
     library_response.select { |word| word.start_with?(arg) }
   end
 end
